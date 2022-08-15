@@ -15,19 +15,9 @@ authorization = {
     'apikey' : {
         'type' : 'apiKey',
         'in' : 'header',
-        # 'name' : 'X-API-KEY'
         'name' : 'x-access-token'
     }
-    # 'oauth2': {
-    #     'type': 'oauth2',
-    #     'flow': 'accessToken',
-    #     'tokenUrl': 'https://somewhere.com/token',
-    #     'authorizationUrl': 'https://somewhere.com/auth',
-    #     'scopes': {
-    #         'read': 'Grant read-only access',
-    #         'write': 'Grant read-write access',
-    #     }
-    # }
+
 }
 
 
@@ -39,12 +29,12 @@ CORS(app)
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
 
-app.config['SECRET_KEY'] = 'ahmed'
+app.config["SECRET_KEY"] = 'something-secret'
 app.config['SQLALCHEMY_TRACT_MODIFICATION'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(base_dir, 'user.db')
 app.config['SQLALCHEMY_ECHO'] = True
 
-# CORS(app)
+
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
 
