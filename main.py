@@ -21,21 +21,24 @@ authorization = {
 
 
 app = Flask(__name__)
-api = Api(app, doc = "/", title="User's API", description="a simple REST API for user data", authorizations=authorization)
+api = Api(app, doc = "/doc", title="User's API", description="a simple REST API for user data", authorizations=authorization)
 
 
 CORS(app)
 
-base_dir = os.path.dirname(os.path.realpath(__file__))
+# base_dir = os.path.dirname(os.path.realpath(__file__))
 
 app.config["SECRET_KEY"] = 'something-secret'
 app.config['SQLALCHEMY_TRACT_MODIFICATION'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(base_dir, 'user.db')
+
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(base_dir, 'user.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
+
 app.config['SQLALCHEMY_ECHO'] = True
 
 
 
-base_dir = os.path.dirname(os.path.realpath(__file__))
+
 
 db = SQLAlchemy(app)
 
