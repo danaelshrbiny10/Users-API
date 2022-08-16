@@ -1,0 +1,5 @@
+export FLASK_APP=app.py (Bash),  set FLASK_APP=app.py (vscode terminal)
+flask shell (Bash), python (cmd)
+from app import db
+db.create_all()
+exit()

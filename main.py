@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta
-from tokenize import generate_tokens
-from flask import Flask, jsonify, request, Blueprint, make_response
+from flask import Flask, jsonify, request, make_response
 from flask_cors import CORS
 from flask_restx import Resource, Api, fields
 from flask_sqlalchemy import SQLAlchemy
@@ -116,8 +115,6 @@ class UserData(Resource) :
 
 @api.route("/users/<int:id>")
 class UserDataPk(Resource) :
-
-    
     @token_required
     @api.marshal_with(UserModel, envelope = "user_get", code = 201)
     @api.doc(security='apikey')
